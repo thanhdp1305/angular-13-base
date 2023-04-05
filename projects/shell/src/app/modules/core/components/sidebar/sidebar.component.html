@@ -1,0 +1,21 @@
+<aside class="main-sidebar navbar-white">
+  <a href="#" class="brand-link bg-primary">
+    <span class="brand-text text-white font-weight-bold">{{ 'app_name' | translate }}</span>
+  </a>
+
+  <div class="sidebar">
+    <app-admin-menu></app-admin-menu>
+    <hr>
+    <nav class="">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item">
+          <a [routerLink]="urls.exampleDocument" routerLinkActive="active" class="nav-link">
+            <p>
+              Documents
+            </p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

@@ -1,0 +1,293 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-3">
+      <div class="col">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/console/dashboard">Home</a></li>
+          <li class="breadcrumb-item active">Documents</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-auto">
+        <h4 class="m-0 text-dark fw-700"><label class="fw-700">{{ 'Documents' | translate }}</label></h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="content" style="font-size: 14px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Overview</h3>
+          </div>
+          <div class="card-body">
+            <p>Template: <a href="https://adminlte.io/themes/v3/" target="_blank">https://adminlte.io/themes/v3/</a></p>
+            <p>Bootstrap 4: <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/"
+                target="_blank">Documents</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Form Validation</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="formValidation">
+              <div class="form-group">
+                <input formControlName="email" class="form-control" placeholder="Nhập email">
+                <app-form-error [control]="formValidation.controls['email']" [isSubmit]="formValidationIsSubmit"
+                  [errorMessages]="validationError.email">
+                </app-form-error>
+              </div>
+            </form>
+            <button class="btn btn-primary" (click)="submitFormValidation()">Submit</button>
+          </div>
+        </div>
+
+        <div class="card card-outline card-primary" [formGroup]="formDateInput">
+          <div class="card-header">
+            <h3 class="card-title">Date input components</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Date picker + input mask:</label>
+              <app-i-datetimepicker formControlName="datepicker" [disabled]="false"></app-i-datetimepicker>
+            </div>
+            <div class="form-group">
+              <label>Date input mask:</label>
+              <app-i-dateinput formControlName="dateInputMask" [disabled]="false"></app-i-dateinput>
+            </div>
+            <div class="form-group">
+              <label>Date range picker:</label>
+              <app-i-daterangepicker formControlName="daterange"></app-i-daterangepicker>
+            </div>
+            <hr>
+            <div class="form-group">
+              <label class="mr-2">Giá trị:</label>
+              <span>{{ formDateInput.value | json }}</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Ng Select components</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label>Select:</label>
+              <ng-select [(ngModel)]="selectedItem" [items]="items" bindLabel="label" bindValue="value"
+                placeholder="{{ 'Select' | translate }}">
+              </ng-select>
+            </div>
+            <p><label>Selected: </label> {{ selectedItem | json }}</p>
+            <p><label>Item selected: </label> {{ eventChangeSelected | json }}</p>
+            <hr>
+            <p>Ng Select documents: <a href="https://www.npmjs.com/package/@ng-select/ng-select" target="_blank">Ng
+                Select</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Button components</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 mb-2">
+                <button class="btn btn-outline-primary">Button outline</button>
+                <button class="btn btn-outline-danger ml-2">Button outline</button>
+                <button class="btn btn-outline-warning ml-2">Button outline</button>
+              </div>
+              <div class="col-12 mb-2">
+                <button class="btn btn-primary">Button solid</button>
+                <button class="btn btn-danger ml-2">Button solid</button>
+                <button class="btn btn-warning ml-2">Button solid</button>
+              </div>
+              <div class="col-12 mb-2">
+                <button class="btn btn-flat btn-outline-primary">Button flat outline</button>
+                <button class="btn btn-flat btn-outline-danger ml-2">Button flat outline</button>
+                <button class="btn btn-flat btn-outline-warning ml-2">Button flat outline</button>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-flat btn-primary">Button flat solid</button>
+                <button class="btn btn-flat btn-danger ml-2">Button flat solid</button>
+                <button class="btn btn-flat btn-warning ml-2">Button flat solid</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Modal components</h3>
+          </div>
+          <div class="card-body">
+            <button class="btn btn-outline-primary" (click)="openModal()">Open Notification Modal</button>
+          </div>
+        </div>
+
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Toast components</h3>
+          </div>
+          <div class="card-body">
+            <button class="btn btn-outline-primary" (click)="toast()">AdminLTE Toast</button>
+            <button class="btn btn-primary ml-2" (click)="toastSweet2()">Sweet2 Toast</button>
+            <hr>
+            <p>Sweet2 documents: <a href="https://sweetalert2.github.io/#examples" target="_blank">Sweet2</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-outline card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Table components</h3>
+          </div>
+          <div class="card-body">
+            <div class="dataTables_wrapper">
+              <div class="row">
+                <div class="col-12">
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-sort-col">
+                      <thead class="bg-tb-header">
+                        <tr>
+                          <th>A</th>
+                          <th>B</th>
+                          <th>C</th>
+                          <th>D</th>
+                          <th>E</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                        <tr>
+                          <td>A</td>
+                          <td>B</td>
+                          <td>C</td>
+                          <td>D</td>
+                          <td>E</td>
+                        </tr>
+                      </tbody>
+                      <tfoot class="bg-tb-header">
+                        <tr>
+                          <th>A</th>
+                          <th>B</th>
+                          <th>C</th>
+                          <th>D</th>
+                          <th>E</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12 col-md-5">
+                  <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+                    Showing 1 to 10 of {{totalRecords}} entries
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers">
+                    <ngb-pagination [collectionSize]="totalRecords" [(page)]="page" [maxSize]="5" [rotate]="true"
+                      [ellipses]="false" [pageSize]="pageSize" (pageChange)="loadData($event)" [boundaryLinks]="true"
+                      aria-label="Default pagination">
+                      <ng-template ngbPaginationFirst>{{ 'text_first' | translate }}</ng-template>
+                      <ng-template ngbPaginationLast>{{ 'text_last' | translate }}</ng-template>
+                      <ng-template ngbPaginationPrevious>&laquo;</ng-template>
+                      <ng-template ngbPaginationNext>&raquo;</ng-template>
+                      <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+                    </ngb-pagination>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

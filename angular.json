@@ -1,0 +1,189 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"cli": {
+		"analytics": "42dcb3db-4597-480b-83c5-556f3d093ee7"
+	},
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"shell": {
+			"projectType": "application",
+			"schematics": {
+				"@schematics/angular:component": {
+					"style": "scss"
+				},
+				"@schematics/angular:application": {
+					"strict": true
+				}
+			},
+			"root": "projects/shell",
+			"sourceRoot": "projects/shell/src",
+			"prefix": "app",
+			"architect": {
+				"build": {
+					"builder": "ngx-build-plus:browser",
+					"options": {
+						"outputPath": "dist/shell",
+						"index": "projects/shell/src/index.html",
+						"main": "projects/shell/src/main.ts",
+						"polyfills": "projects/shell/src/polyfills.ts",
+						"tsConfig": "projects/shell/tsconfig.app.json",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/shell/src/favicon.ico",
+							"projects/shell/src/assets",
+							{ "glob": "**/*", "input": "node_modules/ng2-pdfjs-viewer/pdfjs", "output": "/assets/pdfjs" }
+						],
+						"styles": [
+							"node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+							"node_modules/admin-lte/plugins/toastr/toastr.min.css",
+							"node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css",
+							"node_modules/daterangepicker/daterangepicker.css",
+							"node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
+							"node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
+							"node_modules/admin-lte/dist/css/adminlte.css",
+							"projects/shell/src/assets/js/owlcarousel/owl.carousel.min.css",
+							"projects/shell/src/assets/js/owlcarousel/owl.theme.default.min.css",
+							"projects/shell/src/assets/plugins/prism/prism.css",
+							"projects/shell/src/assets/plugins/slick/slick.css",
+							"projects/shell/src/assets/plugins/slick/slick-theme.css",
+							"node_modules/admin-lte/plugins/sweetalert2/sweetalert2.min.css",
+							"node_modules/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css",
+							"projects/shell/src/styles.scss"
+						],
+						"scripts": [
+							"node_modules/admin-lte/plugins/jquery/jquery.min.js",
+							"node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+							"node_modules/admin-lte/plugins/chart.js/Chart.min.js",
+							"node_modules/admin-lte/plugins/toastr/toastr.min.js",
+							"node_modules/admin-lte/plugins/moment/moment.min.js",
+							"node_modules/admin-lte/plugins/inputmask/jquery.inputmask.bundle.js",
+							"node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js",
+							"node_modules/daterangepicker/daterangepicker.js",
+							"node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
+							"node_modules/admin-lte/dist/js/adminlte.js",
+							"node_modules/admin-lte/plugins/sweetalert2/sweetalert2.all.js",
+							"node_modules/exceljs/dist/exceljs.min.js",
+							"projects/shell/src/assets/js/owlcarousel/owl.carousel.min.js",
+							"projects/shell/src/assets/plugins/prism/prism.js",
+							"projects/shell/src/assets/plugins/slick/slick.min.js"
+						],
+						"extraWebpackConfig": "projects/shell/webpack.config.js",
+						"commonChunk": false,
+						"aot": true
+					},
+					"configurations": {
+						"production": {
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "250mb",
+									"maximumError": "500mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "250mb",
+									"maximumError": "500mb"
+								}
+							],
+							"fileReplacements": [
+								{
+									"replace": "projects/shell/src/environments/environment.ts",
+									"with": "projects/shell/src/environments/environment.prod.ts"
+								}
+							],
+							"outputHashing": "none",
+							"sourceMap": false,
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+						},
+						"develop": {
+							"fileReplacements": [
+								{
+									"replace": "projects/shell/src/environments/environment.ts",
+									"with": "projects/shell/src/environments/environment.dev.ts"
+								}
+							],
+							"outputHashing": "none",
+							"sourceMap": false,
+							"extraWebpackConfig": "projects/shell/webpack.dev.config.js"
+						},
+						"demo": {
+							"fileReplacements": [
+								{
+									"replace": "projects/shell/src/environments/environment.ts",
+									"with": "projects/shell/src/environments/environment.demo.ts"
+								}
+							],
+							"outputHashing": "none",
+							"sourceMap": false,
+							"extraWebpackConfig": "projects/shell/webpack.demo.config.js"
+						},
+						"staging": {
+							"fileReplacements": [
+								{
+									"replace": "projects/shell/src/environments/environment.ts",
+									"with": "projects/shell/src/environments/environment.staging.ts"
+								}
+							],
+							"outputHashing": "none",
+							"sourceMap": false,
+							"extraWebpackConfig": "projects/shell/webpack.staging.config.js"
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"serve": {
+					"builder": "ngx-build-plus:dev-server",
+					"configurations": {
+						"production": {
+							"browserTarget": "shell:build:production",
+							"extraWebpackConfig": "projects/shell/webpack.prod.config.js"
+						},
+						"development": {
+							"browserTarget": "shell:build:development"
+						}
+					},
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4200,
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
+					}
+				},
+				"extract-i18n": {
+					"builder": "ngx-build-plus:extract-i18n",
+					"options": {
+						"browserTarget": "shell:build",
+						"extraWebpackConfig": "projects/shell/webpack.config.js"
+					}
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/shell/src/test.ts",
+						"polyfills": "projects/shell/src/polyfills.ts",
+						"tsConfig": "projects/shell/tsconfig.spec.json",
+						"karmaConfig": "projects/shell/karma.conf.js",
+						"inlineStyleLanguage": "scss",
+						"assets": [
+							"projects/shell/src/favicon.ico",
+							"projects/shell/src/assets"
+						],
+						"styles": [
+							"projects/shell/src/styles.scss"
+						],
+						"scripts": []
+					}
+				}
+			}
+		}
+	},
+	"defaultProject": "shell"
+}

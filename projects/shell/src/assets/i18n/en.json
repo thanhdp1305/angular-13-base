@@ -1,0 +1,18 @@
+{
+    "app_name": "angular-13-base",
+    "btn_confirm": "Confirm",
+    "btn_cancel": "Cancel",
+    "btn_ok": "Accept",
+    "btn_close": "Close",
+    "btn_save": "Save",
+    "btn_login": "Sign in",
+    "notification": "Notification",
+    "signin": "Sign in to start your session",
+    "email": "Email",
+    "password": "Password",
+    "btn_signin": "Sign in",
+    "default_error": "Service problem! Please try again later.",
+    "modal_title_noti": "Notification",
+    "sign_out": "Sign out",
+    "login_account": "Username"
+}

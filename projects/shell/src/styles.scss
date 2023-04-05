@@ -1,0 +1,319 @@
+
+@import "./theme";
+@import "../../../node_modules/admin-lte/build/scss/AdminLTE";
+@import "../../../node_modules/@ng-select/ng-select/themes/default.theme.css";
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    font-family: Inter;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #C5CEE0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #8F9BB3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #8F9BB3;
+}
+
+.material-symbols-outlined {
+    font-size: 1.1rem !important;
+}
+
+.fw-100 {
+    font-weight: 100 !important;
+}
+
+.fw-200 {
+    font-weight: 200 !important;
+}
+
+.fw-300 {
+    font-weight: 300 !important;
+}
+
+.fw-400 {
+    font-weight: 400 !important;
+}
+
+.fw-500 {
+    font-weight: 500 !important;
+}
+
+.fw-600 {
+    font-weight: 600 !important;
+}
+
+.fw-700 {
+    font-weight: 700 !important;
+}
+
+.modal-backdrop {
+    z-index: 1049 !important;
+}
+
+.toast {
+    font-size: 1rem;
+}
+
+.brand-link:hover {
+    color: $primary;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.fc-invalid {
+    border-color: $danger;
+}
+
+.bg-tb-header {
+    background-color: $header_table_bg !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end;
+}
+
+.toasts-top-right {
+    top: 16px;
+    right: 16px;
+}
+
+.back-to-top {
+    color: #fff !important;
+    right: 16px;
+    bottom: 64px;
+}
+
+.pagination-section {
+    align-items: center;
+    .pagination {
+        margin-bottom: 0px;
+    }
+}
+
+.no-border {
+    border: unset !important;
+}
+
+.no-bg {
+    background: unset !important;
+}
+
+.no-border {
+    .ng-select-container {
+      border: unset !important;
+    }
+}
+
+.no-bg {
+    .ng-select-container {
+        background: transparent !important;
+        color: $primary;
+    }
+}
+
+.landingpage .register .register-ss1 .content-right .form-control {
+    height: calc(2.25rem + 0px) !important;
+    border: 1px solid #697083;
+    border-radius: 4px;
+    padding: 12px 8px;
+    font-size: 14px;
+}
+
+.badge-success-new {
+    color: #07965E;
+    background-color: #9AF8AE;
+}
+.badge-danger-new {
+    color: #DB4956;
+    background-color: #FFD1C1;
+}
+.badge-warning-new {
+    color: #DAA821;
+    background-color: #FEF0AB;
+}
+.btn-outline-primary .fa-download{
+    font-size: 15px;
+    line-height: 1.5;
+    margin-right: 0.25rem;
+}
+.text-bold{
+    font-weight: bold;
+}
+.login-card-body .title {
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+    font-weight: bold;
+}
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    padding: 0 10px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.card .signin{
+    text-align: center;
+    font-size: 14px;
+}
+
+.form-group {
+    .input-group {
+        margin-bottom: 0;
+    }
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+}
+
+// .ng-select .ng-select-container {
+//     min-height: calc(2.25rem + 2px) !important;
+//     height: calc(2.25rem + 2px) !important;
+// }
+
+.group-upload {
+    background-color: #FFFFFF;
+    border: 1px dashed #0CAF60;
+    border-radius: 8px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    p {
+        margin-bottom: 8px;
+        font-weight: 300;
+    }
+    a {
+        font-weight: 300 !important;
+    }
+    .material-icons {
+        font-size: 42px;
+    }
+}
+.landingpage .verify-econtract  .btn-file {
+    background: #1363b9;
+    border-radius: 6px;
+    padding: 10px 22px;
+    margin-left: 13px;
+    color: #fff;
+    line-height: 20px;
+    margin-right: 18px;
+    font-size: 14px;
+    border: 0;
+}
+
+.form-control {
+    &:focus {
+        border-color: $gray-400 !important;
+    
+        &~ .input-group-append {
+            .input-group-text {
+                border-color: $gray-400 !important;
+            }
+        }
+    }
+}
+
+.input-group {
+    &:focus-within {
+        .input-group-append {
+            .input-group-text {
+                border-color: $gray-400 !important;
+            }
+        }
+    }
+}
+
+.ng-select {
+    .ng-select-container {
+        border-color: $gray-400 !important;
+    }
+    .ng-dropdown-panel-items {
+        border-color: $gray-400 !important;
+    }
+}
+.swal2-popup,.swal2-title {
+    font-size: 14px !important;
+}
+.input-search .ng-select .ng-select-container{
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    height: 39px;
+    border-color: #98A0B3!important;
+}
+.icon-color{
+    color: #0CAF60;
+}
+.verify-result .callout1 {
+    border-radius: 8px;
+    border: 4px solid #0CAF60;
+}
+.token.string, .token.char, .token.attr-value, .token.regex, .token.variable,.token.operator, .token.entity, .token.url{
+    color: #171447 !important;
+}
+.method-example-topbar{
+    display: block !important;
+}
+.report-list .table-wrapper {
+    position: relative;
+    overflow: auto;
+    width: 100%
+}
+.report-list .sticky-col{
+    min-width: 100px; 
+    position: sticky;
+    right: 0px;
+    // border-left: 1px solid #BDC6D8;
+}
+.report-list th.sticky-col{
+    background-color: #DEE5F1 ;
+}
+.report-list td.sticky-col{
+    background-color: #ffffff;
+}
+.container-fluid,.container-fluid .input-group-lg > .input-group-prepend > .btn,.dropdown-menu{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 14px;
+    color: #171447;
+}
+
+.ng-select .ng-select-container {
+    height: calc(2.25rem + 2px) !important;
+}
+
+.layout-navbar-fixed.sidebar-collapse .wrapper .brand-link {
+    height: calc(3.5rem + 0px);
+}
+.customer-detail {
+    .ng-select {
+        .ng-select-container {
+            background-color: #DEE5F1 !important;
+        }
+    }
+}
+
+.ng-select.ng-select-disabled>.ng-select-container {
+    background-color: $ng_select_disabled;
+}

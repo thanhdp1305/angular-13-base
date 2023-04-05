@@ -1,0 +1,18 @@
+{
+    "app_name": "angular-13-base",
+    "btn_confirm": "Xác nhận",
+    "btn_cancel": "Hủy",
+    "btn_ok": "Đồng ý",
+    "btn_close": "Đóng",
+    "btn_save": "Lưu",
+    "btn_login": "Đăng nhập",
+    "notification": "Thông báo",
+    "signin": "Đăng nhập",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "btn_signin": "Đăng nhập",
+    "default_error": "Sự cố dịch vụ! Vui lòng thử lại sau.",
+    "modal_title_noti": "Thông báo",
+    "sign_out": "Đăng xuất",
+    "login_account": "Tài khoản"
+}
