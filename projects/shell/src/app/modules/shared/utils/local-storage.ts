@@ -1,11 +1,11 @@
-import { CookieEnum } from "../configs/enums";
+import { LocalStorageEnums } from "../enums/localstorage";
 
 export function setAccessToken(token: string): void {
-  localStorage.setItem(CookieEnum.token, token);
+  localStorage.setItem(LocalStorageEnums.token, token);
 }
 
 export function getAccessToken(): string | null {
-  return localStorage.getItem(CookieEnum.token);
+  return localStorage.getItem(LocalStorageEnums.token);
 }
 
 export function removeSession(): void {

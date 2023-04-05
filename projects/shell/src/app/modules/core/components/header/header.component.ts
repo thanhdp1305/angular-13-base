@@ -2,11 +2,10 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../auth/services/auth.service';
-import { CookieControl } from '../../../shared/utils/cookie-control';
-import { isSignedIn } from '../../../shared/configs/auth';
 import { Urls } from '../../../shared/configs/urls';
 import jwt_decode from 'jwt-decode';
 import { Token } from '../../../shared/models/token';
+import { getAccessToken, removeSession } from '../../../shared/utils/local-storage';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +18,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   constructor(
     public translate: TranslateService,
-    private cookie: CookieControl,
     private router: Router,
     private auth: AuthService,
   ) { }
@@ -33,7 +31,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   get isLogined(): boolean {
-    const token = this.cookie.getToken;
+    const token = getAccessToken();
     if (token) {
       return true;
     } else {
@@ -42,7 +40,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   signOut() {
-    this.cookie.removeAll();
+    removeSession();
     this.router.navigate([Urls.signIn]);
   }
 
@@ -107,8 +105,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   get username(): string {
-    const token: string = this.cookie.getToken;
-    const decode_token: Token = new Token(jwt_decode(token));
+    const token: string | null = getAccessToken();
+    const decode_token: Token = new Token(jwt_decode(token as string));
 
     return decode_token.user_name || "";
   }

@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { Api } from '../shared/networks/api';
 import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { CookieControl } from '../shared/utils/cookie-control';
+import { CookieControl } from '../shared/services/cookie-control.service';
 import { AuthService } from '../auth/services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/no-auth.guard';

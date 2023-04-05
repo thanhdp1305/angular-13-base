@@ -11,12 +11,3 @@ export enum ToastClassName {
     'danger' = 'bg-danger',
     'warning' = 'bg-warning'
 }
-
-export enum CookieEnum {
-    'token' = 'token'
-}
-
-export enum ServiceEnum {
-    'AUTH' = "/authservice-service",
-    'MANAGEMENT_SERVICE'= '/core-service',
-}

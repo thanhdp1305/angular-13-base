@@ -10,15 +10,14 @@ import {
 import { Observable } from 'rxjs';
 import { Urls } from '../../shared/configs/urls';
 import { AuthService } from '../../auth/services/auth.service';
-import { CookieControl } from '../../shared/utils/cookie-control';
+import { getAccessToken } from '../../shared/utils/local-storage';
 
 @Injectable()
 export class NoAuthGuard implements CanActivate, CanActivateChild {
 
   constructor(
     private router: Router,
-    private auth: AuthService,
-    private cookie: CookieControl) { }
+    private auth: AuthService) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -29,7 +28,7 @@ export class NoAuthGuard implements CanActivate, CanActivateChild {
     | boolean
     | UrlTree {
 
-    var token = this.cookie.getToken;
+    var token = getAccessToken();
 
     if (token) {
         this.router.navigate([Urls.dashboard]);

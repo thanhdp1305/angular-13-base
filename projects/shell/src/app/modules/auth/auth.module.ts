@@ -10,7 +10,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { AuthGuard } from "../core/guards/auth.guard";
 import { NoAuthGuard } from "../core/guards/no-auth.guard";
 import { AuthService } from "./services/auth.service";
-import { CookieControl } from "../shared/utils/cookie-control";
+import { CookieControl } from "../shared/services/cookie-control.service";
 import { NgSelectModule } from "@ng-select/ng-select";
 
 

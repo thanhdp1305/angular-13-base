@@ -1,9 +1,9 @@
 import { CookieService } from "ngx-cookie-service";
 import jwt_decode from 'jwt-decode';
 import { Token } from "../models/token";
-import { CookieEnum } from "../configs/enums";
 import { Injectable } from "@angular/core";
 import UniversalCookie from "universal-cookie";
+import { CookieEnum } from "../enums/cookie";
 
 const cookie = new UniversalCookie();
 

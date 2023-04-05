@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieControl } from '../../../shared/utils/cookie-control';
 import { Urls } from '../../../shared/configs/urls';
-import jwt_decode from 'jwt-decode';
-import { Token } from '../../../shared/models/token';
 
 @Component({
   selector: 'app-sidebar',

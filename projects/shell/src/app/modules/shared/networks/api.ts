@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from "projects/shell/src/environments/environment";
-import { CookieControl } from "../utils/cookie-control";
+import { getAccessToken } from "../utils/local-storage";
 
 @Injectable()
 export class Api {
@@ -20,7 +20,6 @@ export class Api {
   constructor(
     private http: HttpClient,
     private route: Router,
-    private cookie: CookieControl
   ) {
 
   }
@@ -32,7 +31,7 @@ export class Api {
    * @returns Token: string
    */
   getToken() {
-    return  this.cookie.getToken;
+    return  getAccessToken();
   }
 
   /**

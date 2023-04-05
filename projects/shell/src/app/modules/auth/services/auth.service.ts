@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { Api } from '../../shared/networks/api';
-import jwt_decode from 'jwt-decode';
-import { CookieEnum, ServiceEnum } from '../../shared/configs/enums';
-import { Token } from '../../shared/models/token';
-import { environment } from 'projects/shell/src/environments/environment';
+import { ServicePathEnums } from '../../shared/enums/service-path';
 
-const LOGIN_OAUTH = ServiceEnum.AUTH + '/oauth/token';
+const LOGIN_OAUTH = ServicePathEnums.AUTH + '/oauth/token';
 
 @Injectable()
 export class AuthService {

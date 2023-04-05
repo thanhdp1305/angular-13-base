@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ModalTemplateComponent } from "../components/modal-template/modal-template.component";
-import { ModalType } from "../configs/enums";
 import { StatusCodeEnum } from "../configs/status-code";
+import { ModalType } from "../enums";
 
 @Injectable({
     providedIn: 'root'
