@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "run:shell": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng serve --project shell --port 4200"
+    "serve": "node --max_old_space_size=4000 ./node_modules/@angular/cli/bin/ng serve --project shell --port 4200",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@babel/eslint-parser": "^7.21.3",
     "@ng-bootstrap/ng-bootstrap": "^12.1.2",
     "@ng-select/ng-select": "^8.3.0",
     "@ngx-translate/core": "^14.0.0",
@@ -42,17 +44,29 @@
   "devDependencies": {
     "@angular-architects/module-federation": "^13.0.1",
     "@angular-devkit/build-angular": "~13.3.9",
+    "@angular-eslint/builder": "13.5.0",
+    "@angular-eslint/eslint-plugin": "13.5.0",
+    "@angular-eslint/eslint-plugin-template": "13.5.0",
+    "@angular-eslint/schematics": "13.5.0",
+    "@angular-eslint/template-parser": "13.5.0",
     "@angular/cli": "~13.3.9",
     "@angular/compiler-cli": "~13.3.0",
     "@types/jasmine": "~3.10.0",
     "@types/lodash": "^4.14.191",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "5.27.1",
+    "@typescript-eslint/parser": "5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "prettier": "^2.8.7",
+    "prettier-eslint": "^15.0.1",
     "typescript": "~4.6.2"
   }
 }

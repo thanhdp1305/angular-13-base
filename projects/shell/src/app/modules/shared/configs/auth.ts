@@ -1,7 +1,7 @@
 export function isSignedIn(): boolean {
-  if (localStorage.getItem('Token')) {
-      return true;
+  if (localStorage.getItem("Token")) {
+    return true;
   } else {
-      return false;
+    return false;
   }
 }

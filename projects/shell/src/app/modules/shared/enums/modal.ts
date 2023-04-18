@@ -1,13 +1,13 @@
 export enum ModalType {
-    'blank' = '',
-    'success' = 'success',
-    'error' = 'error'
+  "BLANK" = "",
+  "SUCCESS" = "success",
+  "ERROR" = "error",
 }
 
-export enum ToastClassName {
-    'blank' = '',
-    'info' = 'bg-info',
-    'success' = 'bg-success',
-    'danger' = 'bg-danger',
-    'warning' = 'bg-warning'
+export enum ToastClassNameEnum {
+  "BLANK" = "",
+  "INFO" = "bg-info",
+  "SUCCESS" = "bg-success",
+  "DANGER" = "bg-danger",
+  "WARNING" = "bg-warning",
 }

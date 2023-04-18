@@ -1,3 +1,3 @@
 export enum StatusCodeEnum {
-    "default" = "default"
+  "default" = "default",
 }

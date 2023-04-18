@@ -5,24 +5,24 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { ExampleComponent } from "./components/example/example.component";
 
 export const ConsoleRoutes: Routes = [
-    {
-        path: '',
-        component: MainComponent,
-        // canActivate: [AuthGuard],
-        children: [
-            {
-                path: 'dashboard',
-                component: DashboardComponent
-            },
-            {
-                path: 'example-document',
-                component: ExampleComponent
-            },
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'dashboard'
-            }
-        ]
-    }
-]
+  {
+    path: "",
+    component: MainComponent,
+    // canActivate: [AuthGuard],
+    children: [
+      {
+        path: "dashboard",
+        component: DashboardComponent,
+      },
+      {
+        path: "example-document",
+        component: ExampleComponent,
+      },
+      {
+        path: "",
+        pathMatch: "full",
+        redirectTo: "dashboard",
+      },
+    ],
+  },
+];

@@ -6,18 +6,14 @@ import { RouterModule } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
 import { SharedModule } from "../shared/shared.module";
 import { AuthRoutes } from "./auth.routes";
-import { SigninComponent } from './components/signin/signin.component';
+import { SigninComponent } from "./components/signin/signin.component";
 import { AuthGuard } from "../core/guards/auth.guard";
 import { NoAuthGuard } from "../core/guards/no-auth.guard";
 import { AuthService } from "./services/auth.service";
-import { CookieControl } from "../shared/services/cookie-control.service";
 import { NgSelectModule } from "@ng-select/ng-select";
 
-
 @NgModule({
-  declarations: [
-    SigninComponent,
-  ],
+  declarations: [SigninComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -28,12 +24,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
     NgSelectModule,
     RouterModule.forChild(AuthRoutes),
   ],
-  providers: [
-    CookieControl,
-    AuthService,
-    AuthGuard,
-    NoAuthGuard,
-  ],
-  exports: [RouterModule]
+  providers: [AuthService, AuthGuard, NoAuthGuard],
+  exports: [RouterModule],
 })
-export class AuthModule { }
+export class AuthModule {}

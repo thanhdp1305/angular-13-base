@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ModalTemplateComponent } from './modal-template.component';
+import { ModalTemplateComponent } from "./modal-template.component";
 
-describe('ModalTemplateComponent', () => {
+describe("ModalTemplateComponent", () => {
   let component: ModalTemplateComponent;
   let fixture: ComponentFixture<ModalTemplateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [ModalTemplateComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('ModalTemplateComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

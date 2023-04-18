@@ -1,48 +1,50 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from '../../../shared/configs/regexp';
-import { ModalControl } from '../../../shared/services/modal-control.service';
-import { ToastService } from '../../../shared/services/toast.service';
+import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from "../../../shared/constants/regexp";
+import { ModalControl } from "../../../shared/services/modal-control.service";
+import { ToastService } from "../../../shared/services/toast.service";
 
-declare var $: any;
 @Component({
-  selector: 'app-example',
-  templateUrl: './example.component.html',
-  styleUrls: ['./example.component.scss']
+  selector: "app-example",
+  templateUrl: "./example.component.html",
+  styleUrls: ["./example.component.scss"],
 })
 export class ExampleComponent implements OnInit, AfterViewInit {
-
   formDateInput!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private modalcontrol: ModalControl,
-    private toastControl: ToastService
-  ) { 
+  constructor(private fb: FormBuilder, private modalcontrol: ModalControl, private toastControl: ToastService) {
     this.makeForm();
     this.makeFormValidation();
   }
-  
+
   ngAfterViewInit(): void {
-    
+    //
   }
 
   ngOnInit(): void {
+    //
   }
 
   makeForm() {
     this.formDateInput = this.fb.group({
-      datepicker: ['', Validators.pattern(REGEXP_DATE_INPUT)],
-      dateInputMask: ['', Validators.pattern(REGEXP_DATE_INPUT)],
-      daterange: [''],
-    })
+      datepicker: ["", Validators.pattern(REGEXP_DATE_INPUT)],
+      dateInputMask: ["", Validators.pattern(REGEXP_DATE_INPUT)],
+      daterange: [""],
+    });
   }
 
   /**
    * Mở popup thông báo
    */
   openModal() {
-    this.modalcontrol.showAlert("Test open notification modal", "", true);
+    this.modalcontrol.show({
+      content: "btn_confirm",
+      showConfirmButton: true,
+      showCloseButton: false,
+      additionalConfigNgbModal: {
+        backdrop: "static",
+      },
+    });
   }
 
   //VALIDATION FORM
@@ -51,8 +53,8 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   validationError = {
     email: {
       required: "Vui lòng nhập email",
-      pattern: "Sai định dạng email"
-    }
+      pattern: "Sai định dạng email",
+    },
   };
 
   /**
@@ -60,17 +62,16 @@ export class ExampleComponent implements OnInit, AfterViewInit {
    */
   makeFormValidation() {
     this.formValidation = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern(REGEXP_EMAIL)]]
-    })
+      email: ["", [Validators.required, Validators.pattern(REGEXP_EMAIL)]],
+    });
   }
 
   /**
    * Submit form
-   */  
+   */
   submitFormValidation() {
     this.formValidationIsSubmit = true;
   }
-
 
   //Toast
   toast() {
@@ -78,9 +79,13 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   }
 
   toastSweet2() {
-    this.toastControl.sweet2ToastNoti("Your work has been saved", 'success');
+    this.toastControl.sweet2ToastNoti("Your work has been saved", "success");
   }
-  
+
+  toastCopyClipboard(): void {
+    this.toastControl.show("Copied Clipboard");
+  }
+
   //TABLES
   page = 1;
   totalRecords = 30;
@@ -94,7 +99,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
     { value: 1, label: "Giá trị 1" },
     { value: 2, label: "Giá trị 2" },
     { value: 3, label: "Giá trị 3" },
-    { value: 4, label: "Giá trị 4" }
+    { value: 4, label: "Giá trị 4" },
   ];
   selectedItem: any = null; //Giá trị mặc định của ng-select là null
   eventChangeSelected: any = null;
@@ -106,4 +111,4 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   handleEventNgSelect(e: any) {
     this.eventChangeSelected = e;
   }
-} 
+}

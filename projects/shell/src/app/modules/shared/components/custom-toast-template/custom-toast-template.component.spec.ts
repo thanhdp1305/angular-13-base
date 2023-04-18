@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CustomToastTemplateComponent } from './custom-toast-template.component';
+import { CustomToastTemplateComponent } from "./custom-toast-template.component";
 
-describe('CustomToastTemplateComponent', () => {
+describe("CustomToastTemplateComponent", () => {
   let component: CustomToastTemplateComponent;
   let fixture: ComponentFixture<CustomToastTemplateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomToastTemplateComponent ]
-    })
-    .compileComponents();
+      declarations: [CustomToastTemplateComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('CustomToastTemplateComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

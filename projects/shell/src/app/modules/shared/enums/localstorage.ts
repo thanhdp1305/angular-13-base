@@ -1,3 +1,3 @@
 export enum LocalStorageEnums {
-  'token' = 'token'
+  "TOKEN" = "token",
 }

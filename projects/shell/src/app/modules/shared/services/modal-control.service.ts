@@ -1,78 +1,63 @@
 import { Injectable } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ModalTemplateComponent } from "../components/modal-template/modal-template.component";
-import { StatusCodeEnum } from "../configs/status-code";
-import { ModalType } from "../enums";
+import { StatusCodeEnum } from "../enums/status-code";
+import { ModalType } from "../enums/modal";
+import { ModalOptions } from "../models/modal";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class ModalControl {
+  constructor(private modalService: NgbModal) {}
 
-    constructor(
-        private modalService: NgbModal
-    ) {}
+  show(
+    options: ModalOptions = {
+      title: "modal_title_noti",
+      type: ModalType.BLANK,
+      content: "",
+      showConfirmButton: false,
+      cancelButtonIcon: "",
+      cancelButtonTitle: "btn_close",
+      cancelAction: () => {
+        //
+      },
+      confirmButtonIcon: "",
+      confirmButtonTitle: "btn_ok",
+      confirmAction: () => {
+        //
+      },
+      showCloseButton: true,
+      additionalConfigNgbModal: null,
+    },
+  ): void {
+    const config = { ...options.additionalConfigNgbModal, centered: true };
+    const modalRef = this.modalService.open(ModalTemplateComponent, config);
+    modalRef.componentInstance.title = options.title || "modal_title_noti";
+    modalRef.componentInstance.content = options.content || "";
+    modalRef.componentInstance.type = options.type || ModalType.BLANK;
+    modalRef.componentInstance.showConfirmButton = options.showConfirmButton || false;
+    modalRef.componentInstance.cancelButtonIcon = options.cancelButtonIcon || "";
+    modalRef.componentInstance.cancelButtonTitle = options.cancelButtonTitle || "btn_close";
+    modalRef.componentInstance.cancelAction = options.cancelAction || null;
+    modalRef.componentInstance.confirmButtonIcon = options.confirmButtonIcon || "";
+    modalRef.componentInstance.confirmButtonTitle = options.confirmButtonTitle || "btn_ok";
+    modalRef.componentInstance.confirmAction = options.confirmAction || null;
+    modalRef.componentInstance.showCloseButton = options.showCloseButton;
+  }
 
-    showAlert(msg: any, type: any, twoBtn = false, iconBtn2 = '', titleBtn2 = "btn_ok", actBtn2 = () => { }, iconBtn1 = '', titleBtn1 = "btn_cancel", actBtn1 = () => { }, title: string = "modal_title_noti", config = {}) {
-        const modalRef = this.modalService.open(ModalTemplateComponent, config);
-        modalRef.componentInstance.title = title;
-        modalRef.componentInstance.message = msg;
-        modalRef.componentInstance.typeAlert = type;
-        modalRef.componentInstance.twoBtn = twoBtn;
-        modalRef.componentInstance.iconBtn1 = iconBtn1;
-        modalRef.componentInstance.iconBtn2 = iconBtn2;
-        modalRef.componentInstance.titleButton1 = titleBtn1;
-        modalRef.componentInstance.titleButton2 = titleBtn2;
-        modalRef.componentInstance.callback1 = actBtn1;
-        modalRef.componentInstance.callback2 = actBtn2;
-    }
-
-    showAlertNoClose(msg: any, type: any, iconBtn = '', titleBtn = "btn_ok", actBtn = () => { }, title: string = "modal_title_noti") {
-        const modalRef = this.modalService.open(ModalTemplateComponent, {backdrop: 'static'});
-        modalRef.componentInstance.title = title;
-        modalRef.componentInstance.message = msg;
-        modalRef.componentInstance.typeAlert = type;
-        modalRef.componentInstance.twoBtn = false;
-        modalRef.componentInstance.iconBtn2 = iconBtn;
-        modalRef.componentInstance.titleButton2 = titleBtn;
-        modalRef.componentInstance.callback2 = actBtn;
-        modalRef.componentInstance.noClose = true;
-    }
-
-    showAlertOnlyNoti(msg: any, type: any, iconBtn = '', titleBtn = "btn_close", actBtn = () => { }, title: string = "modal_title_noti", config = {}, 
-        close = () => {}, dimiss = () => {}) {
-        const modalRef = this.modalService.open(ModalTemplateComponent, config);
-        modalRef.componentInstance.title = title;
-        modalRef.componentInstance.message = msg;
-        modalRef.componentInstance.typeAlert = type;
-        modalRef.componentInstance.twoBtn = false;
-        modalRef.componentInstance.iconBtn2 = iconBtn;
-        modalRef.componentInstance.titleButton2 = titleBtn;
-        modalRef.componentInstance.callback2 = actBtn;
-        modalRef.componentInstance.noClose = false;
-        modalRef.result.then((result) => {
-            if (close) {
-                close();
-            }
-        }, (reason) => {
-            if (dimiss) {
-                dimiss();
-            }
-        });
-    }
-
-    //MARK: Handle Error
-    showErrorHandled(err: any, errorMsg: any = StatusCodeEnum) {
-        if (err.error && err.error.error && JSON.stringify(err.error.error).toLowerCase() === "access denied") {
-            this.showAlertOnlyNoti("default_error", ModalType.error);
-        } else if (err.error && err.error.code && errorMsg[err.error.code]) {
-            this.showAlertOnlyNoti(errorMsg[err.error.code], ModalType.error);
-        } else if (err.error && err.error.message && errorMsg[err.error.message]) {
-            this.showAlertOnlyNoti(errorMsg[err.error.message], ModalType.error);
-        }  else if (err.error && err.error.error) {
-            this.showAlertOnlyNoti(err.error.error?.toString(), ModalType.error);
-        } else {
-            this.showAlertOnlyNoti("default_error", ModalType.error);
-        }
-    }
+  //MARK: Handle Error
+  // showErrorHandled(err: any, errorMsg: any = StatusCodeEnum) {
+  //   if (err.error && err.error.error && JSON.stringify(err.error.error).toLowerCase() === "access denied") {
+  //     this.showAlertOnlyNoti("default_error", ModalType.ERROR);
+  //   } else if (err.error && err.error.code && errorMsg[err.error.code]) {
+  //     this.showAlertOnlyNoti(errorMsg[err.error.code], ModalType.ERROR);
+  //   } else if (err.error && err.error.message && errorMsg[err.error.message]) {
+  //     this.showAlertOnlyNoti(errorMsg[err.error.message], ModalType.ERROR);
+  //   } else if (err.error && err.error.error) {
+  //     this.showAlertOnlyNoti(err.error.error?.toString(), ModalType.ERROR);
+  //   } else {
+  //     this.showAlertOnlyNoti("default_error", ModalType.ERROR);
+  //   }
+  // }
 }

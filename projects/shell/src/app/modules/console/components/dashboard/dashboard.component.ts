@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastService } from '../../../shared/services/toast.service';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
   closeResult!: string;
 
-  constructor(
-  ) { }
-
-  ngOnInit(): void {
+  constructor() {
+    //
   }
 
+  ngOnInit(): void {
+    //
+  }
 }

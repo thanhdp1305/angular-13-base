@@ -1,51 +1,39 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
   CanActivate,
   CanActivateChild,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
-  Router
-} from '@angular/router';
-import { Observable } from 'rxjs';
-import { Urls } from '../../shared/configs/urls';
-import { AuthService } from '../../auth/services/auth.service';
-import { getAccessToken } from '../../shared/utils/local-storage';
+  Router,
+} from "@angular/router";
+import { Observable } from "rxjs";
+import { Urls } from "../../shared/enums/urls";
+import { AuthService } from "../../auth/services/auth.service";
+import { getAccessToken } from "../../shared/utils/local-storage";
 
 @Injectable()
 export class NoAuthGuard implements CanActivate, CanActivateChild {
-
-  constructor(
-    private router: Router,
-    private auth: AuthService) { }
+  constructor(private router: Router, private auth: AuthService) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-
-    var token = getAccessToken();
+    state: RouterStateSnapshot,
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const token = getAccessToken();
 
     if (token) {
-        this.router.navigate([Urls.dashboard]);
-        return false;
+      this.router.navigate([Urls.dashboard]);
+      return false;
     } else {
-        return true;
+      return true;
     }
   }
 
   canActivateChild(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+    state: RouterStateSnapshot,
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return true;
   }
 }

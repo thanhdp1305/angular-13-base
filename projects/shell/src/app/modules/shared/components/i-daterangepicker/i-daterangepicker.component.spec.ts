@@ -1,16 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { IDaterangepickerComponent } from './i-daterangepicker.component';
+import { IDaterangepickerComponent } from "./i-daterangepicker.component";
 
-describe('IDaterangepickerComponent', () => {
+describe("IDaterangepickerComponent", () => {
   let component: IDaterangepickerComponent;
   let fixture: ComponentFixture<IDaterangepickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IDaterangepickerComponent ]
-    })
-    .compileComponents();
+      declarations: [IDaterangepickerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('IDaterangepickerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
