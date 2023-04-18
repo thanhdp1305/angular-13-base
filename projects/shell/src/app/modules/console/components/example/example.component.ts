@@ -11,6 +11,19 @@ import { ToastService } from "../../../shared/services/toast.service";
 })
 export class ExampleComponent implements OnInit, AfterViewInit {
   formDateInput!: FormGroup;
+  //TABLES
+  page = 1;
+  totalRecords = 30;
+  pageSize = 10;
+  //Ng Select
+  items = [
+    { value: 1, label: "Giá trị 1" },
+    { value: 2, label: "Giá trị 2" },
+    { value: 3, label: "Giá trị 3" },
+    { value: 4, label: "Giá trị 4" },
+  ];
+  selectedItem: any = null; //Giá trị mặc định của ng-select là null
+  eventChangeSelected: any = null;
 
   constructor(private fb: FormBuilder, private modalcontrol: ModalControl, private toastControl: ToastService) {
     this.makeForm();
@@ -41,6 +54,12 @@ export class ExampleComponent implements OnInit, AfterViewInit {
       content: "btn_confirm",
       showConfirmButton: true,
       showCloseButton: false,
+      confirmAction: () => {
+        this.toastControl.sweet2ToastNoti("Clicked Confirm Button", "success");
+      },
+      cancelAction: () => {
+        this.toastControl.sweet2ToastNoti("Clicked Cancel Button", "error");
+      },
       additionalConfigNgbModal: {
         backdrop: "static",
       },
@@ -86,23 +105,9 @@ export class ExampleComponent implements OnInit, AfterViewInit {
     this.toastControl.show("Copied Clipboard");
   }
 
-  //TABLES
-  page = 1;
-  totalRecords = 30;
-  pageSize = 10;
   loadData(page: any) {
     this.page = page;
   }
-
-  //Ng Select
-  items = [
-    { value: 1, label: "Giá trị 1" },
-    { value: 2, label: "Giá trị 2" },
-    { value: 3, label: "Giá trị 3" },
-    { value: 4, label: "Giá trị 4" },
-  ];
-  selectedItem: any = null; //Giá trị mặc định của ng-select là null
-  eventChangeSelected: any = null;
 
   /**
    * Bắt sự kiện thay đổi giá trị trên ng-select
