@@ -11,6 +11,10 @@ import { ModalOptions } from "../models/modal";
 export class ModalControl {
   constructor(private modalService: NgbModal) {}
 
+  /**
+   * Show modal with options
+   * @param options options modal
+   */
   show(
     options: ModalOptions = {
       title: "modal_title_noti",
@@ -46,18 +50,28 @@ export class ModalControl {
     modalRef.componentInstance.showCloseButton = options.showCloseButton;
   }
 
-  //MARK: Handle Error
-  // showErrorHandled(err: any, errorMsg: any = StatusCodeEnum) {
-  //   if (err.error && err.error.error && JSON.stringify(err.error.error).toLowerCase() === "access denied") {
-  //     this.showAlertOnlyNoti("default_error", ModalType.ERROR);
-  //   } else if (err.error && err.error.code && errorMsg[err.error.code]) {
-  //     this.showAlertOnlyNoti(errorMsg[err.error.code], ModalType.ERROR);
-  //   } else if (err.error && err.error.message && errorMsg[err.error.message]) {
-  //     this.showAlertOnlyNoti(errorMsg[err.error.message], ModalType.ERROR);
-  //   } else if (err.error && err.error.error) {
-  //     this.showAlertOnlyNoti(err.error.error?.toString(), ModalType.ERROR);
-  //   } else {
-  //     this.showAlertOnlyNoti("default_error", ModalType.ERROR);
-  //   }
-  // }
+  /**
+   * Show error
+   * @param err
+   * @param errorMsg
+   */
+  showError(err: any, errorMsg: any = StatusCodeEnum) {
+    let msg = "";
+    if (err.error && err.error.error && JSON.stringify(err.error.error).toLowerCase() === "access denied") {
+      msg = "default_error";
+    } else if (err.error && err.error.code && errorMsg[err.error.code]) {
+      msg = errorMsg[err.error.code];
+    } else if (err.error && err.error.message && errorMsg[err.error.message]) {
+      msg = errorMsg[err.error.message];
+    } else if (err.error && err.error.error) {
+      msg = err.error.error?.toString();
+    } else {
+      msg = "default_error";
+    }
+
+    this.show({
+      content: msg,
+      type: ModalType.ERROR,
+    });
+  }
 }

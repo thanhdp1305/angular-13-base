@@ -53,7 +53,6 @@
               "projects/shell/src/assets/plugins/prism/prism.css",
               "projects/shell/src/assets/plugins/slick/slick.css",
               "projects/shell/src/assets/plugins/slick/slick-theme.css",
-              "node_modules/admin-lte/plugins/sweetalert2/sweetalert2.min.css",
               "node_modules/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.css",
               "projects/shell/src/styles.scss"
             ],

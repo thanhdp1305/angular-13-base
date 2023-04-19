@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { REGEXP_DATE_INPUT, REGEXP_EMAIL } from "../../../shared/constants/regexp";
 import { ModalControl } from "../../../shared/services/modal-control.service";
-import { ToastService } from "../../../shared/services/toast.service";
+import { ToastControlService } from "../../../shared/services/toast-control.service";
 
 @Component({
   selector: "app-example",
@@ -25,7 +25,7 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   selectedItem: any = null; //Giá trị mặc định của ng-select là null
   eventChangeSelected: any = null;
 
-  constructor(private fb: FormBuilder, private modalcontrol: ModalControl, private toastControl: ToastService) {
+  constructor(private fb: FormBuilder, private modalcontrol: ModalControl, private toastControl: ToastControlService) {
     this.makeForm();
     this.makeFormValidation();
   }
@@ -52,16 +52,16 @@ export class ExampleComponent implements OnInit, AfterViewInit {
   openModal() {
     this.modalcontrol.show({
       content: "btn_confirm",
-      showConfirmButton: true,
-      showCloseButton: false,
+      showConfirmButton: false,
+      showCloseButton: true,
       confirmAction: () => {
-        this.toastControl.sweet2ToastNoti("Clicked Confirm Button", "success");
+        // this.toastControl.sweet2ToastNoti("Clicked Confirm Button", "success");
       },
       cancelAction: () => {
-        this.toastControl.sweet2ToastNoti("Clicked Cancel Button", "error");
+        // this.toastControl.sweet2ToastNoti("Clicked Cancel Button", "error");
       },
       additionalConfigNgbModal: {
-        backdrop: "static",
+        // backdrop: "static",
       },
     });
   }
@@ -94,11 +94,20 @@ export class ExampleComponent implements OnInit, AfterViewInit {
 
   //Toast
   toast() {
-    this.toastControl.jqueryToastAdminLte("Thông báo", "Nội dung thông báo");
+    this.toastControl.adminLTEToast({
+      title: "Thông báo",
+      body: "Nội dung thông báo",
+      autohide: true,
+      delay: 1500,
+    });
   }
 
   toastSweet2() {
-    this.toastControl.sweet2ToastNoti("Your work has been saved", "success");
+    this.toastControl.swalToast({
+      title: "Toast successfully",
+      type: "success",
+      timer: 1500,
+    });
   }
 
   toastCopyClipboard(): void {
