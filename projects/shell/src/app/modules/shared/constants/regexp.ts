@@ -14,6 +14,6 @@ export const REGEXP_ID = new RegExp(/^[A-Za-z0-9()/\\._&!-]+$/);
 export const REGEXP_COST = new RegExp(/^[1-9][0-9]*$/);
 export const REGEXP_NUMBER = new RegExp(/^[0-9]*$/);
 export const REGEX_PARY_NAME = new RegExp(/^[~&@#$%^*=+|}{[\];'",><?`\p{L}\s\d]*$/u);
-export const REGEXP_EMAIL_SDT = new RegExp(
+export const REGEXP_EMAIL_PHONENUMBER = new RegExp(
   /([a-z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9]))|(^0([0-9]{9,10})$)/,
 );

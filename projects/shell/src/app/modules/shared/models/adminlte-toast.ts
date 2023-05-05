@@ -5,3 +5,9 @@ export interface AdminLTEToastOptions {
   delay?: number;
   class?: string;
 }
+
+export class AdminLTEToastOptions implements AdminLTEToastOptions {
+  constructor(data: any = null) {
+    this.title = data?.title || "";
+  }
+}
